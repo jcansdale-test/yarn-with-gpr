@@ -9,5 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run a one-line script
-      run: yarn install @jcansdale-test/npm-load@1.0.1056
+    - uses: actions/setup-node@v1
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+
+    - run: yarn install @jcansdale-test/npm-load@1.0.1056
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
