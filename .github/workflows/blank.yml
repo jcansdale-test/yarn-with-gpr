@@ -9,11 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: actions/setup-node@v1
-      with:
-        registry-url: 'https://npm.pkg.github.com'
-
+    - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
+      
     - run: yarn install @jcansdale-test/npm-load@1.0.1056
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
-
