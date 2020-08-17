@@ -4,6 +4,7 @@ on:
 env:
   version: "1.0.0-g${{ github.sha }}"
   package: "@${{ github.repository }}"
+  registry_url: "https://npm.pkg.github.com"
   scope: "${{ github.repository_owner }}"
 
 jobs:
@@ -15,7 +16,8 @@ jobs:
       
     - uses: actions/setup-node@v1
       with:
-        registry-url: 'https://npm.pkg.github.com'
+        registry-url: ${{ env.registry_url }}
+        scope: ${{ env.scope }}
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
@@ -37,7 +39,8 @@ jobs:
       
     - uses: actions/setup-node@v1
       with:
-        registry-url: 'https://npm.pkg.github.com'
+        registry-url: ${{ env.registry_url }}
+        scope: ${{ env.scope }}
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
       
