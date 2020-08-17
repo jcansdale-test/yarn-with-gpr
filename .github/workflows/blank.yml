@@ -19,7 +19,7 @@ jobs:
 
     - run: npm init --scope ${{ github.repository_owner }} -y
 
-    - run: yarn version --new-version ${{ env.version }}
+    - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
 
     - run: yarn publish
       env:
