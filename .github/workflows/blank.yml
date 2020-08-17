@@ -1,6 +1,8 @@
-
 on:
   push:
+
+env:
+  version: 1.0.0-g${{ github.sha }}
 
 jobs:
   yarn-publish:
@@ -16,6 +18,8 @@ jobs:
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: npm init --scope ${{ github.repository_owner }} -y
+
+    - run: yarn version --new-version ${{ env.version }}
 
     - run: yarn publish
       env:
