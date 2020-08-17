@@ -8,6 +8,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
+    - uses: actions/setup-node@v1
+      with:
+        registry-url: 'https://npm.pkg.github.com'
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
       
