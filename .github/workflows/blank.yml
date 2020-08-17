@@ -19,7 +19,7 @@ jobs:
 
     - run: yarn publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}    
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
 
   yarn-add:
     runs-on: ubuntu-latest
