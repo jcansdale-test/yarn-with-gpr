@@ -2,7 +2,9 @@ on:
   push:
 
 env:
-  version: 1.0.0-g${{ github.sha }}
+  version: "1.0.0-g${{ github.sha }}"
+  package: "@${{ github.repository }}"
+  scope: "${{ github.repository_owner }}"
 
 jobs:
   yarn-publish:
@@ -17,7 +19,7 @@ jobs:
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
-    - run: npm init --scope ${{ github.repository_owner }} -y
+    - run: npm init --scope ${{ env.scope }} -y
 
     - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
 
@@ -26,6 +28,8 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
 
   yarn-add:
+    needs: [yarn-publish]
+    
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +41,6 @@ jobs:
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
       
-    - run: yarn add @jcansdale-test/npm-load@1.0.1056
+    - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
