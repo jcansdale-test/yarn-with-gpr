@@ -47,3 +47,7 @@ jobs:
     - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
+      
+    - run: yarn add left-pad
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
