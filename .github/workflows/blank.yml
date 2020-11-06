@@ -21,7 +21,7 @@ jobs:
 
     - run: echo '"registry" "https://npm.pkg.github.com/jcansdale-test"' > .yarnrc
 
-    - run: npm init --scope ${{ env.scope }} -y
+    - run: npm init --scope JCANSDALE-TEST -y
 
     - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
 
