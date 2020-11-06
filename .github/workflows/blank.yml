@@ -19,7 +19,7 @@ jobs:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
 
-    - run: echo '"registry" "https://npm.pkg.github.com/jcansdale-test"' > .yarnrc
+    - run: echo '"@JCANSDALE-TEST:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: npm init --scope jcansdale-test -y
 
