@@ -24,6 +24,8 @@ jobs:
 
     - run: npm init --scope ${{ env.scope }} -y
 
+    - run: npm install -g yarn # Install latest version
+
     - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
 
     - run: yarn publish
