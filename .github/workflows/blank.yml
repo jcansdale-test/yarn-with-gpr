@@ -44,13 +44,13 @@ jobs:
       with:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
-
-    - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
     
     - run: npm install -g yarn # Install latest version
 
     - run: yarn set version berry # Yarn v2
       
+    - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
+
     - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
