@@ -1,5 +1,6 @@
 on:
   push:
+  workflow_dispatch:
 
 env:
   version: "1.0.0-g${{ github.sha }}"
