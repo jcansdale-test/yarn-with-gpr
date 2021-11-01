@@ -47,7 +47,7 @@ jobs:
     
     - run: npm install -g yarn # Install latest version
 
-    - run: yarn set version latest # Yarn v2
+    - run: yarn set version stable # Yarn v2 ?
       
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
