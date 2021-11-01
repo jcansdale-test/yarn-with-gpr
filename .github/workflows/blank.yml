@@ -44,6 +44,8 @@ jobs:
         scope: ${{ env.scope }}
 
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
+    
+    - run: yarn set version berry # Yarn v2
       
     - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
