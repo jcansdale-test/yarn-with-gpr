@@ -24,6 +24,8 @@ jobs:
 
     - run: npm init --scope ${{ env.scope }} -y
 
+    - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
+
     - run: yarn publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
