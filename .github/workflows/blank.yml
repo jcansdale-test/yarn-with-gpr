@@ -24,10 +24,6 @@ jobs:
 
     - run: npm init --scope ${{ env.scope }} -y
 
-    - run: npm install -g yarn # Install latest version
-
-    - run: yarn version --new-version ${{ env.version }} --no-git-tag-version
-
     - run: yarn publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
@@ -44,11 +40,7 @@ jobs:
       with:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
-    
-    - run: npm install -g yarn # Install latest version
-
-    - run: yarn set version stable # Yarn v2 ?
-      
+          
     - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: yarn add ${{ env.package }}@${{ env.version }}
