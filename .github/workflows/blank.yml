@@ -20,7 +20,7 @@ jobs:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
 
-    - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
+    - run: echo '"@${{ github.repository_owner }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: npm init --scope ${{ env.scope }} -y
 
@@ -43,7 +43,7 @@ jobs:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
           
-    - run: echo '"@jcansdale-test:registry" "https://npm.pkg.github.com/"' > .yarnrc
+    - run: echo '"@${{ github.repository_owner }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
