@@ -4,7 +4,7 @@ on:
 
 env:
   version: "1.0.0-g${{ github.sha }}"
-  package: "@${{ github.repository }}"
+  package: "@jcansdale-test/yarn-with-gpr"
   registry_url: "https://npm.pkg.github.com"
   scope: "${{ github.repository_owner }}"
 
