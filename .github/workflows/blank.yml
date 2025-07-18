@@ -6,7 +6,7 @@ env:
   version: "1.0.0-g${{ github.sha }}"
   package: "@jcansdale-test/yarn-with-gpr"
   registry_url: "https://npm.pkg.github.com"
-  scope: "${{ github.repository_owner }}"
+  scope: jcansdale-test
 
 jobs:
   yarn-publish:
@@ -20,7 +20,7 @@ jobs:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
 
-    - run: echo '"@${{ github.repository_owner }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
+    - run: echo '"@${{ env.scope }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: npm init --scope ${{ env.scope }} -y
 
@@ -45,7 +45,7 @@ jobs:
         registry-url: ${{ env.registry_url }}
         scope: ${{ env.scope }}
           
-    - run: echo '"@${{ github.repository_owner }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
+    - run: echo '"@${{ env.scope }}:registry" "https://npm.pkg.github.com/"' > .yarnrc
 
     - run: yarn add ${{ env.package }}@${{ env.version }}
       env:
