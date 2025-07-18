@@ -32,6 +32,7 @@ jobs:
 
   yarn-add:
     needs: [yarn-publish]
+    if: always()
     
     runs-on: ubuntu-latest
 
